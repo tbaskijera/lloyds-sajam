@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lloyds Digital | Popravi stranicu!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!--
+    ============================================
+        LLOYDS DIGITAL - POPRAVI STRANICU!
+    ============================================
+
+        Ova stranica je POKVARENA. Tvoj zadatak: popravi je.
+        Ima 6 bugova skrivenih u ovom fileu.
+        Traži 🔧 komentare — oni će ti pomoći.
+
+        ZADACI:
+        1. Naslov je nevidljiv — popravi boju                          (traži u <style> ispod)
+        2. Kartice su jedna ispod druge — trebaju biti u 3 stupca      (traži u <style> ispod)
+        3. Gumb nema tekst — dodaj mu tekst                            (traži u <body> ispod)
+        4. Tajna sekcija je skrivena — neka se pojavi                  (traži u <style> ispod)
+        5. Opis tekst je premalen — povećaj ga                         (traži u <style> ispod)
+        6. Upiši svoje ime u stranicu — neka svi znaju tko ju je popravio! (traži u <body> ispod)
+
+        Sretno! 🚀
+    -->
+
+    <style>
+        /* 🔧 BUG #1: Boja naslova je ista kao pozadina! Promijeni je u #fbde07 */
+        h1 {
+            color: #070707;
+        }
+
+        /* 🔧 BUG #2: Kartice su u jednom stupcu! Promijeni "1fr" u "repeat(3, 1fr)" */
+        .cards {
+            grid-template-columns: 1fr;
+        }
+
+        /* 🔧 BUG #4: Ova sekcija je skrivena! Promijeni "none" u "block" */
+        .secret {
+            display: none;
+        }
+
+        /* 🔧 BUG #5: Font je 2px — premaleno! Probaj nešto poput 18px */
+        .description {
+            font-size: 2px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <div class="logo">
+                <img src="logo.png" alt="Lloyds Digital">
+            </div>
+            <span class="nav-title">Popravi stranicu!</span>
+        </div>
+    </nav>
+
+    <main>
+
+        <h1>Dobrodošli u Lloyds Digital</h1>
+
+        <p class="description">
+            Mi smo digitalna agencija koja radi aplikacije, web stranice i cool digitalne stvari.
+            Ali trenutno, ova stranica treba TVOJU pomoć!
+        </p>
+
+        <!-- 🔧 BUG #3: Ovaj gumb nema tekst! Dodaj nešto između tagova, npr. "Saznaj više" -->
+        <a href="#cards" class="btn"></a>
+
+        <section class="cards" id="cards">
+            <div class="card">
+                <span class="card-emoji">🎨</span>
+                <h3>Dizajn</h3>
+                <p>Radimo da stvari izgledaju odlično.</p>
+            </div>
+            <div class="card">
+                <span class="card-emoji">💻</span>
+                <h3>Kod</h3>
+                <p>Radimo da stvari zapravo funkcioniraju.</p>
+            </div>
+            <div class="card">
+                <span class="card-emoji">🚀</span>
+                <h3>Lansiranje</h3>
+                <p>Šaljemo u svijet — tisuće ljudi koristi ono što napravimo.</p>
+            </div>
+        </section>
+
+        <section class="secret">
+            <h2>🎉 Pronašao/la si skrivenu sekciju!</h2>
+            <p>Svaka čast — praktički si developer.</p>
+        </section>
+
+        <section class="credit">
+            <!-- 🔧 BUG #6: Upiši svoje ime umjesto [TVOJE IME] — zaslužuješ to! -->
+            <p>Ovu stranicu popravio/la je: <span class="name">[TVOJE IME]</span></p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Napravljeno uz ☕ od strane Lloyds Digital</p>
+    </footer>
+
+</body>
+</html>
