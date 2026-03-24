@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lloyds Digital | Escape Room</title>
+    <title>Lloyds Digital | Debug Challenge</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <!--
     ╔═══════════════════════════════════════════════════════╗
-    ║         🔒  LLOYDS DIGITAL ESCAPE ROOM  🔒          ║
+    ║        🔒  LLOYDS DIGITAL DEBUG CHALLENGE  🔒        ║
     ╠═══════════════════════════════════════════════════════╣
     ║                                                       ║
     ║  Zarobljeni ste u pokvarenoj web stranici!            ║
-    ║  Riješite 7 zadataka da pobjegnete.                  ║
+    ║  Riješite 6 zadataka da pobjegnete.                  ║
     ║                                                       ║
     ║  KAKO IGRA RADI:                                     ║
-    ║  Svaki zadatak, kad ga riješiš, otkriva TRAG         ║
-    ║  na stranici koji te vodi do sljedećeg zadatka.      ║
+    ║  Svaki zadatak otkriva TRAG koji vodi do sljedećeg.  ║
     ║  Prati lance tragova do pobjede!                     ║
     ║                                                       ║
     ║  PRVI KORAK: Pogledaj <style> sekciju ispod.         ║
@@ -29,33 +28,34 @@
     -->
 
     <style>
-        /* ════════════════════════════════════════════════════
-           🔧 BUGOVI — POPRAVITE IH OVDJE!
-           Svaki bug, kad ga popraviš, otkriva trag (clue)
-           za sljedeći zadatak. Prati lanac!
-           ════════════════════════════════════════════════════ */
-
-        /* ──────────────────────────────────────────────────
-           🔧 ZADATAK #1: Stranica je naopačke!
-           Obriši liniju "transform: rotate(180deg);" da okreneš stranicu.
-           ➡️ Kad popraviš, moći ćeš pročitati TRAG koji vodi na zadatak #2.
-           ────────────────────────────────────────────────── */
+        /* ═══════════ 🔧 ZADATAK #1 ═══════════
+           Stranica je naopačke!
+           Pronađi što je krivo u main selektoru i popravi.
+           ═══════════════════════════════════════ */
         main {
             transform: rotate(180deg);
         }
 
+        /* ═══════════ 🔧 ZADATAK #2 ═══════════
+           Boje su nestale!
+           Pronađi što u body selektoru uzrokuje problem i popravi.
+           ═══════════════════════════════════════ */
         body {
             filter: grayscale(100%);
         }
 
+        /* ═══════════ 🔧 ZADATAK #3 ═══════════
+           Naslov je nestao!
+           Pronađi što u h1 selektoru skriva tekst i popravi.
+           ═══════════════════════════════════════ */
         h1 {
-            color: #070707;
+            color: transparent;
         }
 
-        .description {
-            font-size: 2px;
-        }
-
+        /* ═══════════ 🔧 ZADATAK #4 ═══════════
+           Sekcija je sakrivena!
+           Pronađi što skriva .escape-room i popravi.
+           ═══════════════════════════════════════ */
         .escape-room {
             display: none;
         }
@@ -65,11 +65,8 @@
 <body>
 
     <nav>
-        <div class="nav-inner">
-            <div class="logo">
-                <img src="logo.png" alt="Lloyds Digital">
-            </div>
-            <span class="nav-title">🔒 Escape Room Challenge</span>
+        <div class="nav-inner logo">
+            <img src="logo.png" alt="Lloyds Digital">
         </div>
     </nav>
 
@@ -77,83 +74,60 @@
 
         <div class="room-header">
             <span class="room-badge">🔒 ZAKLJUČANO</span>
-            <h1>TRAG #3: Tekst ispod je sićušan! Potraži .description u style sekciji i povećaj font na 18px.</h1>
+
             <div class="clue-box">
                 <span class="clue-label">TRAG #1 →</span>
-                Stranica je čudno bezbojna... Sve je sivo! Potraži <code>filter</code> na <code>body</code> u style sekciji.
+                Odlično, stranica je ispravna! Ali sve je crno-bijelo — skrivena poruka ispod koristi <strong>boje</strong> koje ne možeš vidjeti. Idi u <code>&lt;style&gt;</code> sekciju, pronađi <code>body</code> selektor i <strong>ispravi problem</strong>.
             </div>
-            <div class="clue-box">
+
+            <div class="clue-box clue-box-secret">
                 <span class="clue-label">TRAG #2 →</span>
-                Boje su se vratile! Ali naslov iznad je nevidljiv — skriva se od tebe! Potraži <code>h1</code> u style sekciji i promijeni boju u <code>#fbde07</code>.
+                <span class="secret-ink">Vidiš me! Naslov ispod je nestao — tekst je tu ali ga ne vidiš! Idi u <code>&lt;style&gt;</code> sekciju, pronađi <code>h1</code> selektor i otkrij što skriva tekst.</span>
             </div>
+
+            <h1>TRAG #3: Ispod se krije sakrivena sekcija! Idi u &lt;style&gt; sekciju, pronađi .escape-room selektor i otkrij što ju skriva.</h1>
         </div>
 
-        <!-- ZADATAK #4 zona: ovaj tekst je sićušan, kad se poveća sadrži trag za #5 -->
-        <p class="description">
-            Bravo, možeš me pročitati! Sada pronađi prazan gumb ispod — treba mu tekst.
-            Potraži u HTML-u dolje prazan &lt;a&gt; tag i dodaj tekst između otvorenog i zatvorenog taga.
-            To je ZADATAK #5!
-        </p>
-
-        <a href="#challenge" class="btn"></a>
-
-        <section class="cards" id="challenge">
-            <div class="card">
-                <span class="card-emoji">🎨</span>
-                <h3>Dizajn</h3>
-                <p>Kreiramo sučelja koja ljudi obožavaju koristiti.</p>
-            </div>
-            <div class="card">
-                <span class="card-emoji">💻</span>
-                <h3>Kod</h3>
-                <p>Pišemo kod koji pokreće aplikacije i web stranice.</p>
-            </div>
-            <div class="card">
-                <span class="card-emoji">🚀</span>
-                <h3>Lansiranje</h3>
-                <p>Šaljemo proizvode u svijet — tisuće ljudi ih koristi svaki dan.</p>
-            </div>
-        </section>
-
-        <!-- Trag za zadatak #6 — vidljiv kad gumb radi -->
-        <section class="clue-section">
-            <div class="clue-box">
-                <span class="clue-label">TRAG #5 →</span>
-                Skoro si gotov/a! Pronađi <code>[TVOJE IME]</code> u HTML-u ispod i zamijeni ga sa svojim pravim imenom. To je ZADATAK #6!
-            </div>
-        </section>
-
-        <section class="credit">
-            <!-- 🔧 ZADATAK #6: Upiši svoje ime umjesto [TVOJE IME] — zaslužuješ to!
-                 ➡️ Kad upišeš ime, pročitaj trag ispod koji vodi na ZADNJI zadatak #7. -->
-            <p>Iz escape rooma pobjegao/la je: <span class="name">[TVOJE IME]</span></p>
-        </section>
-
-        <!-- Trag za zadatak #7 — zadnji korak! -->
-        <section class="clue-section">
-            <div class="clue-box clue-final">
-                <span class="clue-label">ZADNJI TRAG →</span>
-                Ostao je još samo jedan korak! Pronađi <code>.escape-room</code> u style sekciji i promijeni <code>display: none</code> u <code>display: block</code>. To je ZADATAK #7 — otključaj tajnu sobu!
-            </div>
-        </section>
-
-        <!-- ZADNJI ZADATAK — tajna soba -->
         <section class="escape-room">
             <div class="escape-glow"></div>
             <div class="escape-content">
-                <div class="trophy">🏆</div>
-                <h2>ČESTITAMO!</h2>
-                <p class="escape-big">Pobjegao/la si iz Escape Rooma!</p>
-                <div class="escape-stars">⭐⭐⭐⭐⭐</div>
-                <p class="escape-sub">Svaka čast — zaslužuješ naš merch!<br>Dođi po njega na naš štand.</p>
-                <div class="escape-badge">ESCAPE ROOM CHAMPION</div>
+                <div class="clue-box clue-revealed">
+                    <span class="clue-label">TRAG #4 →</span>
+                    Ispod u HTML-u se nalazi <strong>zakomentirani kod</strong> — sakriven između <code>&lt;!--</code> i <code>--&gt;</code> oznaka. Pronađi zakomentirani blok i <strong>oslobodi skrivenu sekciju</strong>.
+                </div>
             </div>
         </section>
+
+        <!-- 🚫 OBRIŠI ME ↓
+        <section class="credit" id="potpis">
+            <div class="clue-box clue-final">
+                <span class="clue-label">TRAG #5 →</span>
+                Posljednji korak! Gumb ispod je zaključan. Pronađi <code>button</code> element u HTML-u i otkrij što ga blokira.
+            </div>
+        </section>
+        🚫 OBRIŠI ME ↑ -->
+
+        <section class="action-section">
+            <button class="btn unlock-button" type="button" disabled onclick="document.getElementById('skriveni-trag').style.display='block'; this.classList.add('btn-success'); this.textContent='✅ OTKLJUČANO!';">🔓 OTKLJUČAJ SLJEDEĆI TRAG</button>
+        </section>
+
+        <div id="skriveni-trag" style="display: none;">
+            <section class="escape-room" style="display: block;">
+                <div class="escape-glow"></div>
+                <div class="escape-content">
+                    <div class="trophy">🏆</div>
+                    <h2>ČESTITAMO!</h2>
+                    <p class="escape-big">Riješio/la si Debug Challenge!</p>
+                    <div class="escape-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="escape-sub">Svaka čast — zaslužuješ naš merch!</p>
+                </div>
+            </section>
+        </div>
 
     </main>
 
     <footer>
-        <p>Napravljeno uz ☕ od strane Lloyds Digital</p>
+        <p>Lloyds Digital</p>
     </footer>
 
 </body>

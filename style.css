@@ -1,304 +1,438 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'DM Sans', sans-serif;
-    background: #070707;
-    color: #ffffff;
-    min-height: 100vh;
+  font-family: "DM Sans", sans-serif;
+  background: #070707;
+  color: #ffffff;
+  min-height: 100vh;
 }
 
 nav {
-    border-bottom: 1px solid #1a1a1a;
-    padding: 20px 48px;
+  border-bottom: 1px solid #1a1a1a;
+  padding: 20px 48px;
 }
 
 .nav-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo img {
-    height: 56px;
-    filter: brightness(0) invert(1);
+  height: 56px;
+  filter: brightness(0) invert(1);
 }
 
 .nav-title {
-    font-size: 14px;
-    color: #888;
-    letter-spacing: 0.05em;
+  font-size: 14px;
+  color: #888;
+  letter-spacing: 0.05em;
 }
 
 main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 80px 48px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 48px;
 }
 
 /* ── Header ── */
 
 .room-header {
-    margin-bottom: 32px;
+  margin-bottom: 32px;
 }
 
 .room-badge {
-    display: inline-block;
-    background: rgba(251, 222, 7, 0.1);
-    border: 1px solid rgba(251, 222, 7, 0.3);
-    color: #fbde07;
-    padding: 6px 16px;
-    border-radius: 50px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    margin-bottom: 24px;
+  display: inline-block;
+  background: rgba(251, 222, 7, 0.1);
+  border: 1px solid rgba(251, 222, 7, 0.3);
+  color: #fbde07;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 24px;
 }
 
 h1 {
-    font-size: 48px;
-    font-weight: 800;
-    letter-spacing: -2px;
-    margin-bottom: 16px;
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
 }
 
 /* ── Clue boxes ── */
 
 .clue-box {
-    background: rgba(251, 222, 7, 0.05);
-    border: 1px solid rgba(251, 222, 7, 0.2);
-    border-left: 3px solid #fbde07;
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 15px;
-    color: #ccc;
-    line-height: 1.6;
+  background: rgba(251, 222, 7, 0.05);
+  border: 1px solid rgba(251, 222, 7, 0.2);
+  border-left: 3px solid #fbde07;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.clue-box-secret {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 18, 22, 0.98),
+    rgba(15, 15, 19, 0.98)
+  );
+  border-color: rgba(251, 222, 7, 0.3);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.clue-box-secret::before,
+.clue-box-secret::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.clue-box-secret::before {
+  background:
+    linear-gradient(90deg, rgba(122, 0, 26, 0.08), transparent 35%),
+    linear-gradient(270deg, rgba(0, 43, 134, 0.08), transparent 35%);
+  opacity: 1;
+}
+
+.clue-box-secret::after {
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.015),
+    transparent 40%
+  );
+  border-radius: 6px;
+}
+
+.clue-box-secret > * {
+  position: relative;
+  z-index: 1;
+}
+
+.secret-ink {
+  display: inline;
+  color: #0000b8;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .clue-box code {
-    font-family: 'JetBrains Mono', monospace;
-    background: rgba(251, 222, 7, 0.15);
-    color: #fbde07;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 13px;
+  font-family: "JetBrains Mono", monospace;
+  background: rgba(251, 222, 7, 0.15);
+  color: #fbde07;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.clue-box-secret code {
+  color: #0000cc;
+  background: rgba(0, 0, 200, 0.12);
 }
 
 .clue-label {
-    display: inline-block;
-    background: #fbde07;
-    color: #070707;
-    font-size: 11px;
-    font-weight: 800;
-    padding: 3px 10px;
-    border-radius: 4px;
-    margin-right: 10px;
-    letter-spacing: 0.05em;
-    vertical-align: middle;
+  display: inline-block;
+  background: #fbde07;
+  color: #070707;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-right: 10px;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
 }
 
 .clue-final {
-    border-color: rgba(251, 222, 7, 0.4);
-    background: rgba(251, 222, 7, 0.08);
+  border-color: rgba(251, 222, 7, 0.4);
+  background: rgba(251, 222, 7, 0.08);
 }
 
 .clue-section {
-    margin-top: 48px;
+  margin-top: 48px;
 }
 
 /* ── Description ── */
 
 .description {
-    color: #888;
-    line-height: 1.7;
-    max-width: 550px;
-    margin-bottom: 40px;
+  color: #888;
+  line-height: 1.7;
+  max-width: 550px;
+  margin-bottom: 40px;
+}
+
+/* ── Action section ── */
+
+.action-section {
+  display: flex;
+  justify-content: center;
+  margin: 48px 0 24px;
+}
+
+.btn-success {
+  background: #22c55e !important;
+  color: #fff !important;
+  pointer-events: none;
+}
+
+.clue-revealed {
+  animation: fadeSlideIn 0.5s ease-out;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.credit-text {
+  margin-top: 20px;
+  font-size: 18px;
 }
 
 /* ── Button ── */
 
 .btn {
-    display: inline-block;
-    background: #fbde07;
-    color: #070707;
-    padding: 14px 32px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 16px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    min-height: 48px;
+  display: inline-block;
+  background: #fbde07;
+  color: #070707;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  min-height: 48px;
 }
 
 .btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 24px rgba(251, 222, 7, 0.3);
+  transform: scale(1.05);
+  box-shadow: 0 0 24px rgba(251, 222, 7, 0.3);
 }
 
 /* ── Cards ── */
 
 .cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 64px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 64px;
+}
+
+.unlock-button:disabled {
+  opacity: 0.35;
+  filter: grayscale(100%);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.unlock-button:disabled:hover {
+  transform: none;
+  box-shadow: none;
 }
 
 .card {
-    background: #0e0e0e;
-    border: 1px solid #1a1a1a;
-    border-radius: 16px;
-    padding: 36px 28px;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+  background: #0e0e0e;
+  border: 1px solid #1a1a1a;
+  border-radius: 16px;
+  padding: 36px 28px;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    border-color: #333;
+  transform: translateY(-4px);
+  border-color: #333;
 }
 
 .card-emoji {
-    font-size: 36px;
-    display: block;
-    margin-bottom: 16px;
+  font-size: 36px;
+  display: block;
+  margin-bottom: 16px;
 }
 
 .card h3 {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 
 .card p {
-    font-size: 14px;
-    color: #888;
-    line-height: 1.6;
+  font-size: 14px;
+  color: #888;
+  line-height: 1.6;
 }
 
 /* ── Credit ── */
 
 .credit {
-    margin-top: 64px;
-    text-align: center;
-    font-size: 18px;
-    color: #888;
+  margin-top: 64px;
+  text-align: center;
+  font-size: 18px;
+  color: #888;
+}
+
+.clue-credit {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .name {
-    color: #fbde07;
-    font-weight: 800;
-    font-size: 22px;
+  color: #fbde07;
+  font-weight: 800;
+  font-size: 22px;
 }
 
 /* ── Escape room finale ── */
 
 .escape-room {
-    margin-top: 64px;
-    padding: 64px 48px;
-    background: linear-gradient(135deg, #0e0e0e 0%, #1a1a00 100%);
-    border: 2px solid #fbde07;
-    border-radius: 20px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+  margin-top: 64px;
+  padding: 64px 48px;
+  background: linear-gradient(135deg, #0e0e0e 0%, #1a1a00 100%);
+  border: 2px solid #fbde07;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .escape-glow {
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, rgba(251, 222, 7, 0.08) 0%, transparent 60%);
-    animation: pulse 3s ease-in-out infinite;
-    pointer-events: none;
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(251, 222, 7, 0.08) 0%,
+    transparent 60%
+  );
+  animation: pulse 3s ease-in-out infinite;
+  pointer-events: none;
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .escape-content {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .trophy {
-    font-size: 72px;
-    margin-bottom: 16px;
-    animation: bounce 2s ease-in-out infinite;
+  font-size: 72px;
+  margin-bottom: 16px;
+  animation: bounce 2s ease-in-out infinite;
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 .escape-room h2 {
-    font-size: 36px;
-    font-weight: 800;
-    color: #fbde07;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
+  font-size: 36px;
+  font-weight: 800;
+  color: #fbde07;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
 }
 
 .escape-big {
-    font-size: 20px;
-    color: #fff;
-    margin-bottom: 16px;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 16px;
 }
 
 .escape-stars {
-    font-size: 32px;
-    margin: 20px 0;
-    letter-spacing: 8px;
+  font-size: 32px;
+  margin: 20px 0;
+  letter-spacing: 8px;
 }
 
 .escape-sub {
-    color: #888;
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 24px;
+  color: #888;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 24px;
 }
 
 .escape-badge {
-    display: inline-block;
-    background: #fbde07;
-    color: #070707;
-    padding: 10px 28px;
-    border-radius: 50px;
-    font-weight: 800;
-    font-size: 14px;
-    letter-spacing: 1px;
+  display: inline-block;
+  background: #fbde07;
+  color: #070707;
+  padding: 10px 28px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 
 /* ── Footer ── */
 
 footer {
-    border-top: 1px solid #1a1a1a;
-    padding: 32px 48px;
-    text-align: center;
+  border-top: 1px solid #1a1a1a;
+  padding: 32px 48px;
+  text-align: center;
 }
 
 footer p {
-    font-size: 13px;
-    color: #888;
+  font-size: 13px;
+  color: #888;
 }
 
 /* ── Responsive ── */
 
 @media (max-width: 768px) {
-    main { padding: 60px 24px; }
-    .cards { grid-template-columns: 1fr; }
-    h1 { font-size: 32px; }
-    .escape-room { padding: 48px 24px; }
-    .trophy { font-size: 56px; }
+  main {
+    padding: 60px 24px;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  h1 {
+    font-size: 32px;
+  }
+  .escape-room {
+    padding: 48px 24px;
+  }
+  .trophy {
+    font-size: 56px;
+  }
 }
