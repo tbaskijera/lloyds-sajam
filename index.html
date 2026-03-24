@@ -3,50 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lloyds Digital | Popravi stranicu!</title>
+    <title>Lloyds Digital | Escape Room</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 
     <!--
-    ============================================
-        LLOYDS DIGITAL - POPRAVI STRANICU!
-    ============================================
-
-        Ova stranica je POKVARENA. Tvoj zadatak: popravi je.
-        Ima 6 bugova skrivenih u ovom fileu.
-        Traži 🔧 komentare — oni će ti pomoći.
-
-        ZADACI:
-        1. Naslov je nevidljiv — popravi boju                          (traži u <style> ispod)
-        2. Kartice su jedna ispod druge — trebaju biti u 3 stupca      (traži u <style> ispod)
-        3. Gumb nema tekst — dodaj mu tekst                            (traži u <body> ispod)
-        4. Tajna sekcija je skrivena — neka se pojavi                  (traži u <style> ispod)
-        5. Opis tekst je premalen — povećaj ga                         (traži u <style> ispod)
-        6. Upiši svoje ime u stranicu — neka svi znaju tko ju je popravio! (traži u <body> ispod)
-
-        Sretno! 🚀
+    ╔═══════════════════════════════════════════════════════╗
+    ║         🔒  LLOYDS DIGITAL ESCAPE ROOM  🔒          ║
+    ╠═══════════════════════════════════════════════════════╣
+    ║                                                       ║
+    ║  Zarobljeni ste u pokvarenoj web stranici!            ║
+    ║  Riješite 7 zadataka da pobjegnete.                  ║
+    ║  Tražite 🔧 komentare — oni su vaši hintovi.         ║
+    ║                                                       ║
+    ║  ZADACI:                                              ║
+    ║  1. Stranica je naopačke! Okreni je.         <style>  ║
+    ║  2. Sve je crno-bijelo! Vrati boje.          <style>  ║
+    ║  3. Naslov je nevidljiv! Popravi boju.       <style>  ║
+    ║  4. Tekst opisa je sićušan! Povećaj ga.      <style>  ║
+    ║  5. Gumb nema tekst! Dodaj mu tekst.         <body>   ║
+    ║  6. Upiši svoje ime — tko je pobjegao?       <body>   ║
+    ║  7. Otključaj tajnu sobu — zadnji zadatak!   <style>  ║
+    ║                                                       ║
+    ║  Sretno! 🚀                                          ║
+    ╚═══════════════════════════════════════════════════════╝
     -->
 
     <style>
-        /* 🔧 BUG #1: Boja naslova je ista kao pozadina! Promijeni je u #fbde07 */
+        /* ════════════════════════════════════════
+           🔧 BUGOVI — POPRAVITE IH OVDJE!
+           ════════════════════════════════════════ */
+
+        /* 🔧 ZADATAK #1: Stranica je naopačke!
+           Obriši liniju "transform: rotate(180deg);" da okreneš stranicu. */
+        main {
+            transform: rotate(180deg);
+        }
+
+        /* 🔧 ZADATAK #2: Sve je crno-bijelo!
+           Obriši liniju "filter: grayscale(100%);" da vratiš boje. */
+        body {
+            filter: grayscale(100%);
+        }
+
+        /* 🔧 ZADATAK #3: Naslov je nevidljiv jer je iste boje kao pozadina!
+           Promijeni "#070707" u "#fbde07" */
         h1 {
             color: #070707;
         }
 
-        /* 🔧 BUG #2: Kartice su u jednom stupcu! Promijeni "1fr" u "repeat(3, 1fr)" */
-        .cards {
-            grid-template-columns: 1fr;
-        }
-
-        /* 🔧 BUG #4: Ova sekcija je skrivena! Promijeni "none" u "block" */
-        .secret {
-            display: none;
-        }
-
-        /* 🔧 BUG #5: Font je 2px — premaleno! Probaj nešto poput 18px */
+        /* 🔧 ZADATAK #4: Font je 2px — nitko ne može pročitati ovo!
+           Promijeni "2px" u "18px" */
         .description {
             font-size: 2px;
+        }
+
+        /* 🔧 ZADATAK #7: Tajna soba je zaključana!
+           Ovo je ZADNJI zadatak. Promijeni "none" u "block" da otključaš sobu. */
+        .escape-room {
+            display: none;
         }
     </style>
 
@@ -58,48 +74,55 @@
             <div class="logo">
                 <img src="logo.png" alt="Lloyds Digital">
             </div>
-            <span class="nav-title">Popravi stranicu!</span>
+            <span class="nav-title">🔒 Escape Room Challenge</span>
         </div>
     </nav>
 
     <main>
 
-        <h1>Dobrodošli u Lloyds Digital</h1>
+        <div class="room-header">
+            <span class="room-badge">🔒 ZAKLJUČANO</span>
+            <h1>Lloyds Digital Escape Room</h1>
+        </div>
 
         <p class="description">
-            Mi smo digitalna agencija koja radi aplikacije, web stranice i cool digitalne stvari.
-            Ali trenutno, ova stranica treba TVOJU pomoć!
+            Ova web stranica je potpuno pokvarena. Tvoj zadatak: popravi 7 bugova u kodu
+            i pobjegni! Svaki popravak otkriva nešto novo. Zadnji zadatak otključava tajnu sobu.
         </p>
 
-        <!-- 🔧 BUG #3: Ovaj gumb nema tekst! Dodaj nešto između tagova, npr. "Saznaj više" -->
-        <a href="#cards" class="btn"></a>
+        <!-- 🔧 ZADATAK #5: Ovaj gumb nema tekst! Dodaj nešto između tagova, npr. "Pokreni misiju" -->
+        <a href="#challenge" class="btn"></a>
 
-        <section class="cards" id="cards">
+        <section class="cards" id="challenge">
             <div class="card">
                 <span class="card-emoji">🎨</span>
                 <h3>Dizajn</h3>
-                <p>Radimo da stvari izgledaju odlično.</p>
+                <p>Kreiramo sučelja koja ljudi obožavaju koristiti.</p>
             </div>
             <div class="card">
                 <span class="card-emoji">💻</span>
                 <h3>Kod</h3>
-                <p>Radimo da stvari zapravo funkcioniraju.</p>
+                <p>Pišemo kod koji pokreće aplikacije i web stranice.</p>
             </div>
             <div class="card">
                 <span class="card-emoji">🚀</span>
                 <h3>Lansiranje</h3>
-                <p>Šaljemo u svijet — tisuće ljudi koristi ono što napravimo.</p>
+                <p>Šaljemo proizvode u svijet — tisuće ljudi ih koristi svaki dan.</p>
             </div>
         </section>
 
-        <section class="secret">
-            <h2>🎉 Pronašao/la si skrivenu sekciju!</h2>
-            <p>Svaka čast — praktički si developer.</p>
+        <section class="credit">
+            <!-- 🔧 ZADATAK #6: Upiši svoje ime umjesto [TVOJE IME] — zaslužuješ to! -->
+            <p>Iz escape rooma pobjegao/la je: <span class="name">[TVOJE IME]</span></p>
         </section>
 
-        <section class="credit">
-            <!-- 🔧 BUG #6: Upiši svoje ime umjesto [TVOJE IME] — zaslužuješ to! -->
-            <p>Ovu stranicu popravio/la je: <span class="name">[TVOJE IME]</span></p>
+        <!-- ZADNJI ZADATAK — tajna soba -->
+        <section class="escape-room">
+            <div class="escape-glow"></div>
+            <h2>🏆 ČESTITAMO!</h2>
+            <p class="escape-big">Pobjegao/la si iz Escape Rooma!</p>
+            <p class="escape-sub">Svaka čast — definitivno zaslužuješ naš merch! Dođi po njega na naš štand.</p>
+            <div class="escape-stars">⭐⭐⭐⭐⭐</div>
         </section>
 
     </main>
