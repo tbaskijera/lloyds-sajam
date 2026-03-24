@@ -18,20 +18,11 @@
     ║                                                       ║
     ║  KAKO IGRA RADI:                                     ║
     ║  Svaki zadatak, kad ga riješiš, otkriva TRAG         ║
-    ║  (clue) koji te vodi do sljedećeg zadatka.           ║
+    ║  na stranici koji te vodi do sljedećeg zadatka.      ║
     ║  Prati lance tragova do pobjede!                     ║
     ║                                                       ║
-    ║  ZADACI:                                              ║
-    ║  1. Stranica je naopačke! Okreni je.         <style>  ║
-    ║  2. Sve je crno-bijelo! Vrati boje.          <style>  ║
-    ║  3. Naslov je nevidljiv! Popravi boju.       <style>  ║
-    ║  4. Tekst opisa je sićušan! Povećaj ga.      <style>  ║
-    ║  5. Gumb nema tekst! Dodaj mu tekst.         <body>   ║
-    ║  6. Upiši svoje ime — tko je pobjegao?       <body>   ║
-    ║  7. Otključaj tajnu sobu — zadnji zadatak!   <style>  ║
-    ║                                                       ║
     ║  PRVI KORAK: Pogledaj <style> sekciju ispod.         ║
-    ║  Traži 🔧 komentare — oni su tvoji hintovi!         ║
+    ║  Pronađi ZADATAK #1 i popravi bug!                   ║
     ║                                                       ║
     ║  Sretno! 🚀                                          ║
     ╚═══════════════════════════════════════════════════════╝
@@ -53,37 +44,18 @@
             transform: rotate(180deg);
         }
 
-        /* ──────────────────────────────────────────────────
-           🔧 ZADATAK #2: Sve je crno-bijelo!
-           Obriši liniju "filter: grayscale(100%);" da vratiš boje.
-           ➡️ Kad popraviš, žuti elementi će se pojaviti s tragom za #3.
-           ────────────────────────────────────────────────── */
         body {
             filter: grayscale(100%);
         }
 
-        /* ──────────────────────────────────────────────────
-           🔧 ZADATAK #3: Naslov je nevidljiv — iste boje kao pozadina!
-           Promijeni "#070707" u "#fbde07"
-           ➡️ Kad popraviš, naslov otkriva poruku s tragom za #4.
-           ────────────────────────────────────────────────── */
         h1 {
             color: #070707;
         }
 
-        /* ──────────────────────────────────────────────────
-           🔧 ZADATAK #4: Font opisa je 2px — nečitljivo!
-           Promijeni "2px" u "18px"
-           ➡️ Kad popraviš, tekst sadrži trag za zadatak #5.
-           ────────────────────────────────────────────────── */
         .description {
             font-size: 2px;
         }
 
-        /* ──────────────────────────────────────────────────
-           🔧 ZADATAK #7: Tajna soba je zaključana!
-           Ovo je ZADNJI zadatak. Promijeni "none" u "block".
-           ────────────────────────────────────────────────── */
         .escape-room {
             display: none;
         }
@@ -103,14 +75,16 @@
 
     <main>
 
-        <!-- ZADATAK #1 zona: kad se stranica okrene, ovaj trag postaje čitljiv -->
         <div class="room-header">
             <span class="room-badge">🔒 ZAKLJUČANO</span>
-            <!-- Ovaj naslov je ZADATAK #3 — boja mu je ista kao pozadina -->
-            <h1>Pronađi prazan gumb ispod ↓</h1>
+            <h1>TRAG #3: Tekst ispod je sićušan! Potraži .description u style sekciji i povećaj font na 18px.</h1>
             <div class="clue-box">
                 <span class="clue-label">TRAG #1 →</span>
                 Stranica je čudno bezbojna... Sve je sivo! Potraži <code>filter</code> na <code>body</code> u style sekciji.
+            </div>
+            <div class="clue-box">
+                <span class="clue-label">TRAG #2 →</span>
+                Boje su se vratile! Ali naslov iznad je nevidljiv — skriva se od tebe! Potraži <code>h1</code> u style sekciji i promijeni boju u <code>#fbde07</code>.
             </div>
         </div>
 
@@ -121,8 +95,6 @@
             To je ZADATAK #5!
         </p>
 
-        <!-- 🔧 ZADATAK #5: Ovaj gumb nema tekst! Dodaj nešto između tagova, npr. "Pokreni misiju 🚀" -->
-        <!-- ➡️ Kad dodaš tekst, gumb postaje vidljiv i vodi te do sljedeće sekcije s tragom za #6. -->
         <a href="#challenge" class="btn"></a>
 
         <section class="cards" id="challenge">
