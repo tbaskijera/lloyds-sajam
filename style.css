@@ -41,6 +41,25 @@ main {
     padding: 80px 48px;
 }
 
+/* ── Header ── */
+
+.room-header {
+    margin-bottom: 32px;
+}
+
+.room-badge {
+    display: inline-block;
+    background: rgba(251, 222, 7, 0.1);
+    border: 1px solid rgba(251, 222, 7, 0.3);
+    color: #fbde07;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+}
+
 h1 {
     font-size: 48px;
     font-weight: 800;
@@ -48,12 +67,62 @@ h1 {
     margin-bottom: 16px;
 }
 
+/* ── Clue boxes ── */
+
+.clue-box {
+    background: rgba(251, 222, 7, 0.05);
+    border: 1px solid rgba(251, 222, 7, 0.2);
+    border-left: 3px solid #fbde07;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.clue-box code {
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(251, 222, 7, 0.15);
+    color: #fbde07;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.clue-label {
+    display: inline-block;
+    background: #fbde07;
+    color: #070707;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-right: 10px;
+    letter-spacing: 0.05em;
+    vertical-align: middle;
+}
+
+.clue-final {
+    border-color: rgba(251, 222, 7, 0.4);
+    background: rgba(251, 222, 7, 0.08);
+}
+
+.clue-section {
+    margin-top: 48px;
+}
+
+/* ── Description ── */
+
 .description {
     color: #888;
     line-height: 1.7;
-    max-width: 500px;
+    max-width: 550px;
     margin-bottom: 40px;
 }
+
+/* ── Button ── */
 
 .btn {
     display: inline-block;
@@ -64,12 +133,16 @@ h1 {
     text-decoration: none;
     font-weight: 700;
     font-size: 16px;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    min-height: 48px;
 }
 
 .btn:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 24px rgba(251, 222, 7, 0.3);
 }
+
+/* ── Cards ── */
 
 .cards {
     display: grid;
@@ -83,11 +156,12 @@ h1 {
     border: 1px solid #1a1a1a;
     border-radius: 16px;
     padding: 36px 28px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-4px);
+    border-color: #333;
 }
 
 .card-emoji {
@@ -108,24 +182,7 @@ h1 {
     line-height: 1.6;
 }
 
-.secret {
-    margin-top: 64px;
-    padding: 48px;
-    background: #0e0e0e;
-    border: 2px solid #fbde07;
-    border-radius: 16px;
-    text-align: center;
-}
-
-.secret h2 {
-    font-size: 28px;
-    margin-bottom: 8px;
-}
-
-.secret p {
-    color: #888;
-    font-size: 16px;
-}
+/* ── Credit ── */
 
 .credit {
     margin-top: 64px;
@@ -140,6 +197,91 @@ h1 {
     font-size: 22px;
 }
 
+/* ── Escape room finale ── */
+
+.escape-room {
+    margin-top: 64px;
+    padding: 64px 48px;
+    background: linear-gradient(135deg, #0e0e0e 0%, #1a1a00 100%);
+    border: 2px solid #fbde07;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.escape-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(251, 222, 7, 0.08) 0%, transparent 60%);
+    animation: pulse 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.escape-content {
+    position: relative;
+    z-index: 1;
+}
+
+.trophy {
+    font-size: 72px;
+    margin-bottom: 16px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+.escape-room h2 {
+    font-size: 36px;
+    font-weight: 800;
+    color: #fbde07;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.escape-big {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.escape-stars {
+    font-size: 32px;
+    margin: 20px 0;
+    letter-spacing: 8px;
+}
+
+.escape-sub {
+    color: #888;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.escape-badge {
+    display: inline-block;
+    background: #fbde07;
+    color: #070707;
+    padding: 10px 28px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* ── Footer ── */
+
 footer {
     border-top: 1px solid #1a1a1a;
     padding: 32px 48px;
@@ -151,8 +293,12 @@ footer p {
     color: #888;
 }
 
+/* ── Responsive ── */
+
 @media (max-width: 768px) {
     main { padding: 60px 24px; }
     .cards { grid-template-columns: 1fr; }
     h1 { font-size: 32px; }
+    .escape-room { padding: 48px 24px; }
+    .trophy { font-size: 56px; }
 }

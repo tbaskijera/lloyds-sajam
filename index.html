@@ -6,7 +6,7 @@
     <title>Lloyds Digital | Escape Room</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <!--
     ╔═══════════════════════════════════════════════════════╗
@@ -15,7 +15,11 @@
     ║                                                       ║
     ║  Zarobljeni ste u pokvarenoj web stranici!            ║
     ║  Riješite 7 zadataka da pobjegnete.                  ║
-    ║  Tražite 🔧 komentare — oni su vaši hintovi.         ║
+    ║                                                       ║
+    ║  KAKO IGRA RADI:                                     ║
+    ║  Svaki zadatak, kad ga riješiš, otkriva TRAG         ║
+    ║  (clue) koji te vodi do sljedećeg zadatka.           ║
+    ║  Prati lance tragova do pobjede!                     ║
     ║                                                       ║
     ║  ZADACI:                                              ║
     ║  1. Stranica je naopačke! Okreni je.         <style>  ║
@@ -26,41 +30,60 @@
     ║  6. Upiši svoje ime — tko je pobjegao?       <body>   ║
     ║  7. Otključaj tajnu sobu — zadnji zadatak!   <style>  ║
     ║                                                       ║
+    ║  PRVI KORAK: Pogledaj <style> sekciju ispod.         ║
+    ║  Traži 🔧 komentare — oni su tvoji hintovi!         ║
+    ║                                                       ║
     ║  Sretno! 🚀                                          ║
     ╚═══════════════════════════════════════════════════════╝
     -->
 
     <style>
-        /* ════════════════════════════════════════
+        /* ════════════════════════════════════════════════════
            🔧 BUGOVI — POPRAVITE IH OVDJE!
-           ════════════════════════════════════════ */
+           Svaki bug, kad ga popraviš, otkriva trag (clue)
+           za sljedeći zadatak. Prati lanac!
+           ════════════════════════════════════════════════════ */
 
-        /* 🔧 ZADATAK #1: Stranica je naopačke!
-           Obriši liniju "transform: rotate(180deg);" da okreneš stranicu. */
+        /* ──────────────────────────────────────────────────
+           🔧 ZADATAK #1: Stranica je naopačke!
+           Obriši liniju "transform: rotate(180deg);" da okreneš stranicu.
+           ➡️ Kad popraviš, moći ćeš pročitati TRAG koji vodi na zadatak #2.
+           ────────────────────────────────────────────────── */
         main {
             transform: rotate(180deg);
         }
 
-        /* 🔧 ZADATAK #2: Sve je crno-bijelo!
-           Obriši liniju "filter: grayscale(100%);" da vratiš boje. */
+        /* ──────────────────────────────────────────────────
+           🔧 ZADATAK #2: Sve je crno-bijelo!
+           Obriši liniju "filter: grayscale(100%);" da vratiš boje.
+           ➡️ Kad popraviš, žuti elementi će se pojaviti s tragom za #3.
+           ────────────────────────────────────────────────── */
         body {
             filter: grayscale(100%);
         }
 
-        /* 🔧 ZADATAK #3: Naslov je nevidljiv jer je iste boje kao pozadina!
-           Promijeni "#070707" u "#fbde07" */
+        /* ──────────────────────────────────────────────────
+           🔧 ZADATAK #3: Naslov je nevidljiv — iste boje kao pozadina!
+           Promijeni "#070707" u "#fbde07"
+           ➡️ Kad popraviš, naslov otkriva poruku s tragom za #4.
+           ────────────────────────────────────────────────── */
         h1 {
             color: #070707;
         }
 
-        /* 🔧 ZADATAK #4: Font je 2px — nitko ne može pročitati ovo!
-           Promijeni "2px" u "18px" */
+        /* ──────────────────────────────────────────────────
+           🔧 ZADATAK #4: Font opisa je 2px — nečitljivo!
+           Promijeni "2px" u "18px"
+           ➡️ Kad popraviš, tekst sadrži trag za zadatak #5.
+           ────────────────────────────────────────────────── */
         .description {
             font-size: 2px;
         }
 
-        /* 🔧 ZADATAK #7: Tajna soba je zaključana!
-           Ovo je ZADNJI zadatak. Promijeni "none" u "block" da otključaš sobu. */
+        /* ──────────────────────────────────────────────────
+           🔧 ZADATAK #7: Tajna soba je zaključana!
+           Ovo je ZADNJI zadatak. Promijeni "none" u "block".
+           ────────────────────────────────────────────────── */
         .escape-room {
             display: none;
         }
@@ -80,17 +103,26 @@
 
     <main>
 
+        <!-- ZADATAK #1 zona: kad se stranica okrene, ovaj trag postaje čitljiv -->
         <div class="room-header">
             <span class="room-badge">🔒 ZAKLJUČANO</span>
-            <h1>Lloyds Digital Escape Room</h1>
+            <!-- Ovaj naslov je ZADATAK #3 — boja mu je ista kao pozadina -->
+            <h1>Pronađi prazan gumb ispod ↓</h1>
+            <div class="clue-box">
+                <span class="clue-label">TRAG #1 →</span>
+                Stranica je čudno bezbojna... Sve je sivo! Potraži <code>filter</code> na <code>body</code> u style sekciji.
+            </div>
         </div>
 
+        <!-- ZADATAK #4 zona: ovaj tekst je sićušan, kad se poveća sadrži trag za #5 -->
         <p class="description">
-            Ova web stranica je potpuno pokvarena. Tvoj zadatak: popravi 7 bugova u kodu
-            i pobjegni! Svaki popravak otkriva nešto novo. Zadnji zadatak otključava tajnu sobu.
+            Bravo, možeš me pročitati! Sada pronađi prazan gumb ispod — treba mu tekst.
+            Potraži u HTML-u dolje prazan &lt;a&gt; tag i dodaj tekst između otvorenog i zatvorenog taga.
+            To je ZADATAK #5!
         </p>
 
-        <!-- 🔧 ZADATAK #5: Ovaj gumb nema tekst! Dodaj nešto između tagova, npr. "Pokreni misiju" -->
+        <!-- 🔧 ZADATAK #5: Ovaj gumb nema tekst! Dodaj nešto između tagova, npr. "Pokreni misiju 🚀" -->
+        <!-- ➡️ Kad dodaš tekst, gumb postaje vidljiv i vodi te do sljedeće sekcije s tragom za #6. -->
         <a href="#challenge" class="btn"></a>
 
         <section class="cards" id="challenge">
@@ -111,18 +143,39 @@
             </div>
         </section>
 
+        <!-- Trag za zadatak #6 — vidljiv kad gumb radi -->
+        <section class="clue-section">
+            <div class="clue-box">
+                <span class="clue-label">TRAG #5 →</span>
+                Skoro si gotov/a! Pronađi <code>[TVOJE IME]</code> u HTML-u ispod i zamijeni ga sa svojim pravim imenom. To je ZADATAK #6!
+            </div>
+        </section>
+
         <section class="credit">
-            <!-- 🔧 ZADATAK #6: Upiši svoje ime umjesto [TVOJE IME] — zaslužuješ to! -->
+            <!-- 🔧 ZADATAK #6: Upiši svoje ime umjesto [TVOJE IME] — zaslužuješ to!
+                 ➡️ Kad upišeš ime, pročitaj trag ispod koji vodi na ZADNJI zadatak #7. -->
             <p>Iz escape rooma pobjegao/la je: <span class="name">[TVOJE IME]</span></p>
+        </section>
+
+        <!-- Trag za zadatak #7 — zadnji korak! -->
+        <section class="clue-section">
+            <div class="clue-box clue-final">
+                <span class="clue-label">ZADNJI TRAG →</span>
+                Ostao je još samo jedan korak! Pronađi <code>.escape-room</code> u style sekciji i promijeni <code>display: none</code> u <code>display: block</code>. To je ZADATAK #7 — otključaj tajnu sobu!
+            </div>
         </section>
 
         <!-- ZADNJI ZADATAK — tajna soba -->
         <section class="escape-room">
             <div class="escape-glow"></div>
-            <h2>🏆 ČESTITAMO!</h2>
-            <p class="escape-big">Pobjegao/la si iz Escape Rooma!</p>
-            <p class="escape-sub">Svaka čast — definitivno zaslužuješ naš merch! Dođi po njega na naš štand.</p>
-            <div class="escape-stars">⭐⭐⭐⭐⭐</div>
+            <div class="escape-content">
+                <div class="trophy">🏆</div>
+                <h2>ČESTITAMO!</h2>
+                <p class="escape-big">Pobjegao/la si iz Escape Rooma!</p>
+                <div class="escape-stars">⭐⭐⭐⭐⭐</div>
+                <p class="escape-sub">Svaka čast — zaslužuješ naš merch!<br>Dođi po njega na naš štand.</p>
+                <div class="escape-badge">ESCAPE ROOM CHAMPION</div>
+            </div>
         </section>
 
     </main>
